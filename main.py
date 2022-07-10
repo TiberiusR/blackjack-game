@@ -9,7 +9,6 @@
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
-
 import random
 
 def deal_card():
@@ -39,6 +38,12 @@ def compare(user_score, computer_score):
     else:
       print("You lose!")
 
+def announce(user_cards, user_score, computer_cards, computer_score):
+  print(f"Your cards are: {user_cards}")
+  print(f"Your score is: {user_score}")
+  print(f"The computer cards are: {computer_cards}")
+  print(f"The computer score is: {computer_score}")
+
 def game():
   user_cards = []
   computer_cards = []
@@ -50,10 +55,7 @@ def game():
   user_score = calculate_score(user_cards)
   computer_score = calculate_score(computer_cards)
 
-  print(f"Your cards are: {user_cards}")
-  print(f"Your score is: {user_score}")
-  print(f"The computer cards are: {computer_cards}")
-  print(f"The computer score is: {computer_score}")
+  announce(user_cards, user_score, computer_cards, computer_score)
 
   if user_score == 0:
     print("You win!")
@@ -67,10 +69,7 @@ def game():
     while user_choice == 'y':
       user_cards.append(deal_card())
       user_score = calculate_score(user_cards)
-      print(f"Your cards are: {user_cards}")
-      print(f"Your score is: {user_score}")
-      print(f"The computer cards are: {computer_cards}")
-      print(f"The computer score is: {computer_score}")
+      announce(user_cards, user_score, computer_cards, computer_score)
       if user_score > 21:
         print("You lose!")
         return
@@ -82,10 +81,7 @@ def game():
       while computer_score < 17:
         computer_cards.append(deal_card())
         computer_score = calculate_score(computer_cards)
-        print(f"Your cards are: {user_cards}")
-        print(f"Your score is: {user_score}")
-        print(f"The computer cards are: {computer_cards}")
-        print(f"The computer score is: {computer_score}")
+        announce(user_cards, user_score, computer_cards, computer_score)
         if computer_score == 0:
           print("You lose!")
           return
